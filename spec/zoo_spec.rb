@@ -43,7 +43,7 @@ RSpec.describe Zoo do
     expect(@zoo.animal_count).to eq(2)
   end
 
-  it 'outputs animals older than array' do
+  it 'outputs animals older than an argument' do
     @zoo.add_animal(@animal_1)
     @zoo.add_animal(@animal_2)
     @zoo.add_animal(@animal_3)
@@ -52,5 +52,14 @@ RSpec.describe Zoo do
     expect(@zoo.animals_older_than(250)).to eq([])
     expect(@zoo.animals_older_than(100)).to eq([@animal_3, @animal_4])
     expect(@zoo.animals_older_than(10)).to eq([@animal_1, @animal_2, @animal_3, @animal_4])
+  end
+
+  it 'outputs total weight of animals' do
+    @zoo.add_animal(@animal_1)
+    @zoo.add_animal(@animal_2)
+    @zoo.add_animal(@animal_3)
+    @zoo.add_animal(@animal_4)
+
+    expect(@zoo.total_weight_of_animals).to eq (265)
   end
 end
