@@ -71,4 +71,13 @@ RSpec.describe Zoo do
 
     expect(@zoo.details).to eq({"total_weight" => 265, "street_address" => "2300 Southern Blvd"})
   end
+
+  it 'sorts animals by weight' do
+    @zoo.add_animal(@animal_1)
+    @zoo.add_animal(@animal_2)
+    @zoo.add_animal(@animal_3)
+    @zoo.add_animal(@animal_4)
+
+    expect(@zoo.animals_sorted_by_weight).to eq(@animal_4, @animal_3, @animal_1, @animal_2)
+  end
 end
