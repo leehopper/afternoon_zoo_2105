@@ -22,8 +22,18 @@ RSpec.describe Zoo do
     expect(@zoo.zip_code).to eq('10460')
   end
 
-  xit 'has no inventory or animals to start' do
+  it 'has no inventory or animals to start' do
     expect(@zoo.inventory).to eq([])
     expect(@zoo.animal_count).to eq(0)
+  end
+
+  it 'receives animals and creates inventory and animal count' do
+    animal_1 = Animal.new("Sea Otter", 10, 25)
+    animal_2 = Animal.new("Red Panda", 5, 70)
+    @zoo.add_animal(animal_1)
+    @zoo.add_animal(animal_2)
+
+    expect(@zoo.inventory).to eq([animal_1, animal_2])
+    expect(@zoo.animal_count).to eq(2)
   end
 end
