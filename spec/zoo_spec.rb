@@ -78,6 +78,6 @@ RSpec.describe Zoo do
     @zoo.add_animal(@animal_3)
     @zoo.add_animal(@animal_4)
 
-    expect(@zoo.animals_sorted_by_weight).to eq(@animal_4, @animal_3, @animal_1, @animal_2)
+    expect(@zoo.animals_sorted_by_weight).to eq([@animal_4, @animal_3, @animal_1, @animal_2])
   end
 end
