@@ -38,4 +38,11 @@ class Zoo
     end
     total_weight
   end
+
+  def details
+    zoo_details = {
+      "total_weight" => total_weight_of_animals,
+      "street_address" => @street
+    }
+  end
 end
