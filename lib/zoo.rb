@@ -13,11 +13,15 @@ class Zoo
     @animal_count = 0
   end
 
+  def address
+    "#{@street} #{@city}, #{@state} #{@zip_code}"
+  end
+
   def add_animal(animal)
     @inventory << animal
   end
 
   def animal_count
     @inventory.length
-  end 
+  end
 end
