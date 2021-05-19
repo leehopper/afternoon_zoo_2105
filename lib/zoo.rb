@@ -30,4 +30,12 @@ class Zoo
       animal.age_weeks > age
     end
   end
+
+  def total_weight_of_animals
+    total_weight = 0
+    @inventory.each do |animal|
+      total_weight += animal.weight_pounds
+    end
+    total_weight
+  end
 end
