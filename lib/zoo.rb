@@ -1,7 +1,7 @@
 require './lib/animal'
 
 class Zoo
-  attr_reader :name, :street, :city, :state, :zip_code
+  attr_reader :name, :street, :city, :state, :zip_code, :inventory
 
   def initialize (name, street, city, state, zip_code)
     @name = name
@@ -12,4 +12,12 @@ class Zoo
     @inventory = []
     @animal_count = 0
   end
+
+  def add_animal(animal)
+    @inventory << animal
+  end
+
+  def animal_count
+    @inventory.length
+  end 
 end
