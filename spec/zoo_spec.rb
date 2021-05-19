@@ -22,6 +22,10 @@ RSpec.describe Zoo do
     expect(@zoo.zip_code).to eq('10460')
   end
 
+  it 'has an address' do
+    expect(@zoo.address).to eq('2300 Southern Blvd Bronx, NY 10460')
+  end
+
   it 'has no inventory or animals to start' do
     expect(@zoo.inventory).to eq([])
     expect(@zoo.animal_count).to eq(0)
