@@ -24,4 +24,10 @@ class Zoo
   def animal_count
     @inventory.length
   end
+
+  def animals_older_than(age)
+    @inventory.find_all do |animal|
+      animal.age_weeks > age
+    end
+  end
 end
