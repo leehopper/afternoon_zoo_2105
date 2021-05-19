@@ -5,6 +5,10 @@ require './lib/zoo'
 RSpec.describe Zoo do
   before(:each) do
     @zoo = Zoo.new('Bronx Zoo', '2300 Southern Blvd', 'Bronx', 'NY', '10460')
+    @animal_1 = Animal.new("Sea Otter", 10, 25)
+    @animal_2 = Animal.new("Red Panda", 5, 70)
+    @animal_3 = Animal.new("Capybara", 100, 150)
+    @animal_4 = Animal.new("Dolphin", 150, 200)
   end
 
   it 'exists' do
@@ -32,12 +36,21 @@ RSpec.describe Zoo do
   end
 
   it 'receives animals and creates inventory and animal count' do
-    animal_1 = Animal.new("Sea Otter", 10, 25)
-    animal_2 = Animal.new("Red Panda", 5, 70)
-    @zoo.add_animal(animal_1)
-    @zoo.add_animal(animal_2)
+    @zoo.add_animal(@animal_1)
+    @zoo.add_animal(@animal_2)
 
-    expect(@zoo.inventory).to eq([animal_1, animal_2])
+    expect(@zoo.inventory).to eq([@animal_1, @animal_2])
     expect(@zoo.animal_count).to eq(2)
+  end
+
+  it 'outputs animals older than array' do
+    @zoo.add_animal(@animal_1)
+    @zoo.add_animal(@animal_2)
+    @zoo.add_animal(@animal_3)
+    @zoo.add_animal(@animal_4)
+
+    expect(@zoo.animals_older_than(250)).to eq([])
+    expect(@zoo.animals_older_than(100)).to eq([@aninal_3, @animal_4])
+    expect(@zoo.animals_older_than(10)).to eq([@aninal_1, @animal_2, @aninal_3, @animal_4])
   end
 end
