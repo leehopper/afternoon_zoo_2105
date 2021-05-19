@@ -45,4 +45,18 @@ class Zoo
       "street_address" => @street
     }
   end
+
+  def animals_sorted_by_weight
+    sorted_weight = []
+    index = 0
+    @inventory.each do |animal|
+      if animal.weight_pounds > @inventory[0].weight_pounds
+        sorted_weight.unshift(animal)
+      end
+      if animal.weight_pounds < @inventory[index].weight_pounds
+        sorted_weight << animal
+      end
+      index += 1
+    end
+  end
 end
